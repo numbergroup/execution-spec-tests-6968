@@ -351,6 +351,7 @@ class TransitionTool:
         if result.returncode != 0:
             raise Exception("failed to evaluate: " + result.stderr.decode())
 
+        print(result.stderr.decode("utf-8"))
         output = json.loads(result.stdout)
 
         if not all([x in output for x in ["alloc", "result", "body"]]):
